@@ -1,0 +1,16 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+post
+{% endblock title %}
+
+{% block content %}
+<h1 xmlns="http://www.w3.org/1999/html"></h1>
+<table>
+    <p class="text-center"><a  href="{% url 'game_message' gameheader.id %}" class="btn btn-secondary btn-sm">Подписаться</a></p>
+    <br><tr><h1>{{post.header}}</h1></tr></br>
+    <br><tr>{{post.text}}</tr></br>
+    <br><tr>{{post.get_CategoryCheck_display}}</tr></br>
+    <br><tr>{{post.body|safe}}</tr></br>
+</table>
+{% endblock content %}

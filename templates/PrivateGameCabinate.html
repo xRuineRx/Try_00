@@ -1,0 +1,28 @@
+{% extends 'flatpages/default.html' %}
+
+
+
+{% block title %}
+GamePosts_Private
+{% endblock title %}
+
+{% block content %}
+   <h1> Ваши личные объявления: </h1>
+    <table>
+       {% if GamePosts_Private %}
+            {% for GamePost in GamePosts_Private %}
+
+        <tr>
+               <td>{{ GamePost.header }}</td>
+               <td>{{ GamePost.text }}</td>
+               <td>{{ GamePost.get_CategoryCheck_display}}</td>
+               <td><a> Откликнувшиеся игроки: </a><br>  {{ GamePost.written_by }}</td>
+
+        </tr>
+
+            {% endfor %}
+       {% endif %}
+
+
+    </table>
+{% endblock content %}

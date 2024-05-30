@@ -1,0 +1,37 @@
+{% extends 'flatpages/default.html' %}
+
+
+
+{% block title %}
+GamePosts
+{% endblock title %}
+
+{% block content %}
+   <h1> Доска Объявлений! </h1>
+    <table>
+           <tr>
+               <td>Заголовок</td>
+               <td>
+                   Описание
+               </td>
+               <td>Слэнг Категории</td>
+               <td>Дополнительные действия</td>
+           </tr>
+       {% if GamePosts %}
+            {% for GamePost in GamePosts %}
+        <tr>
+               <td>{{ GamePost.header }}</td>
+               <td>{{ GamePost.text }}</td>
+               <td>{{ GamePost.get_CategoryCheck_display}}</td>
+                <td>
+                <a  href="{% url 'Details' GamePost.id %}"> Нажмите узнать детали</a>
+                </td>
+                <td>
+                <a  href="{% url 'Update_Details' GamePost.id %}"> Нажмите обновить детали </a>
+                </td>
+
+        </tr>
+            {% endfor %}
+       {% endif %}
+    </table>
+{% endblock content %}
